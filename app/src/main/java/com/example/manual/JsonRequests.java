@@ -1,6 +1,7 @@
 package com.example.manual;
 
 import android.app.Activity;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -9,6 +10,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,12 +23,17 @@ public class JsonRequests {
         this.activity = activity;
     }
 
-    public void request(String URL){
+    public void request(String URL, TextView tv, String id){
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                System.out.println(response);
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    tv.setText(tv.getText()+ "\n " + jsonObject.getString("Text"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -35,7 +44,7 @@ public class JsonRequests {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("textId", "1");
+                parametros.put("textId", id);
                 return parametros;
             }
         };

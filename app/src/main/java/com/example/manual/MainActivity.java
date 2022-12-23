@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class MainActivity extends Activity {
 
-    private String URL = "https://proyectomultidisciplinar2022.000webhostapp.com/getUsers.php";
+    public static final String URL = "https://proyectomultidisciplinar2022.000webhostapp.com/getUsers.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +31,6 @@ public class MainActivity extends Activity {
         addListeners();
         Statement statement;
         System.out.println("asdsa");
-        JsonRequests jsonRequests = new JsonRequests(this);
-        jsonRequests.request(URL);
 
     }
 
