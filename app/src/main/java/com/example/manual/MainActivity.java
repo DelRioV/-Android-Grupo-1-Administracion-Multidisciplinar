@@ -14,6 +14,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONObject;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,16 +25,17 @@ import java.util.Map;
 
 public class MainActivity extends Activity {
 
-    private String URL = "https://proyectomultidisciplinar2022.000webhostapp.com/getUsers.php";
+    private final static String URL = "https://proyectomultidisciplinar2022.000webhostapp.com/getUsers.php";
+
+    public static String getURL() {
+        return URL;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainactivitylayout);
         addListeners();
-        Statement statement;
-        System.out.println("asdsa");
-        JsonRequests jsonRequests = new JsonRequests(this);
-        jsonRequests.request(URL);
 
     }
 

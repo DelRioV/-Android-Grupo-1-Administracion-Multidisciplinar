@@ -12,5 +12,8 @@ public class ProjectActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.projectlayout);
         findViewById(R.id.btnBack2).setOnClickListener(new ListenerBackMenu(this));
+        JsonRequests jsonRequests = new JsonRequests(this);
+        jsonRequests.request(MainActivity.getURL(), findViewById(R.id.tvProject));
+
     }
 }
