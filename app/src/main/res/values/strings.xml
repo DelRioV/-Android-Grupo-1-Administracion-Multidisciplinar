@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Multidisciplinar</string>
+    <string name="title_text">Administration Project</string>
+    <string name="btnManual_text">Manual</string>
+    <string name="btnProject_text">About project</string>
+    <string name="btnBack_text">Back</string>
+</resources>
